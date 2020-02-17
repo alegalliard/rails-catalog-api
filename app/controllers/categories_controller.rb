@@ -5,7 +5,7 @@ class CategoriesController < ApplicationController
   def index
     @categories = Category.all
 
-    render json: @categories
+    render json: @categories, status: :partial_content
   end
 
   # GET /categories/1
