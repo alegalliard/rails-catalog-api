@@ -5,7 +5,14 @@ class CategoriesController < ApplicationController
   def index
     @categories = Category.all
 
-    render json: @categories, status: :partial_content
+    render json: @categories
+    # veja como sobrescrever o método as_json para alterar o padrão, no model (ref b)
+    # methods: :author #ver no model (ref a) o método author 
+    # render json: @categories.map { |cat| cat.attributes.merge({author: 'ale'}) } - mergeando um attr
+    #, status: :partial_content - status code por tipo
+    # root: true - traz o nome do root (nesse caso, category:{...})
+    # only: [:atributo] - traz somente os atributos indicados
+    # except: [:atributo] - exclui os atributos indicados
   end
 
   # GET /categories/1
