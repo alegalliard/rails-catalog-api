@@ -1,4 +1,6 @@
 class Category < ApplicationRecord
+    belongs_to :product
+    
     def author #ref a
         "Xuxa xo sarampo"
     end
